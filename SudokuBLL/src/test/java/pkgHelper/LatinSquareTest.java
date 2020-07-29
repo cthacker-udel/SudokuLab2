@@ -86,7 +86,6 @@ public class LatinSquareTest {
 		int [] Col = LS.getColumn(1);
 		
 		assertTrue(Arrays.equals(ExpectedCol, Col));
-		System.out.println(Arrays.toString(Col));
 	}
 	
 	@Test
@@ -99,7 +98,6 @@ public class LatinSquareTest {
 		int [] Row = LS.getRow(1);
 		
 		assertTrue(Arrays.equals(ExpectedRow, Row));
-		System.out.println(Arrays.toString(Row));
 	}
 	
 	@Test
