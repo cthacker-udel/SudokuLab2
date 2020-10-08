@@ -24,28 +24,28 @@ public class Sudoku extends LatinSquare {
 		return super.getLatinSquare();
 	}
 	
-	/*
-	protected int[] getRegion(int RegionNbr) {
-		int[] reg = new int[super.getLatinSquare().length];
-		int i = (RegionNbr % iSqrtSize) * iSqrtSize;
-		int j = (RegionNbr / iSqrtSize) * iSqrtSize;
-		int iMax = i + iSqrtSize;
-		int jMax = j + iSqrtSize;
-		int iCnt = 0;
-		
-		for (int row = j; row < jMax; row++) {
-			for(int col = i; col < iMax; col++) {
-				reg[iCnt] = super.getLatinSquare()[row][col];
-				iCnt++;
-			}
-		}
-		return reg;
-	}
-	*/
 	
-	protected int[] getRegion(int Row, int Col) {
-		//return getRegion(Row - (Row % this.iSqrtSize) + (Col / this.iSqrtSize));
-	}
+	protected int[] getRegion(int RegionNbr) {//start of getRegion(RegionNbr)
+		int[] reg = new int[super.getLatinSquare().length];//array to store region values
+		int i = (RegionNbr % iSqrtSize) * iSqrtSize;//starting column
+		int j = (RegionNbr / iSqrtSize) * iSqrtSize;//starting row
+		int iMax = i + iSqrtSize;//max column size
+		int jMax = j + iSqrtSize;//max row size
+		int iCnt = 0;//count for region
+		
+		for (int row = j; row < jMax; row++) {//for loop to go through the rows
+			for(int col = i; col < iMax; col++) {//nested for loop to go through the columns
+				reg[iCnt] = super.getLatinSquare()[row][col];//save the value to reg[]
+				iCnt++;//move position in array reg[]
+			}//end column for loop
+		}//end row for loop
+		return reg;//return array reg
+	}// end of getRegion(regionNbr)
+	
+	
+	protected int[] getRegion(int Row, int Col) {//method to get values in region based off row and column values
+		return getRegion(Row - (Row % this.iSqrtSize) + (Col / this.iSqrtSize));// call the getRegion(regionNbr)
+	}//end of getRegion( int Row, int Col)
 	
 	@Override
 	protected boolean hasDuplicates() {
