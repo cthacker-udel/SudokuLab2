@@ -1,7 +1,7 @@
 package pkgGame;
 
 import pkgHelper.LatinSquare;
-
+// make a subclass from LatinSquare
 public class Sudoku extends LatinSquare {
 	int iSqrtSize;
 	public Sudoku() {
@@ -24,7 +24,7 @@ public class Sudoku extends LatinSquare {
 		return super.getLatinSquare();
 	}
 	
-	
+	// get the region of the sqrtsize * sqrtsize area
 	protected int[] getRegion(int RegionNbr) {//start of getRegion(RegionNbr)
 		int[] reg = new int[super.getLatinSquare().length];//array to store region values
 		int i = (RegionNbr % iSqrtSize) * iSqrtSize;//starting column
