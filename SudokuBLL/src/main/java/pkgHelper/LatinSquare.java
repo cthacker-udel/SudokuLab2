@@ -186,7 +186,6 @@ public class LatinSquare {
 	 * @return - returns 'true' if any of the elements are duplicate
 	 */
 	public boolean hasDuplicates(int[] arr) {
-
 		boolean hasDuplicates = false;
 		int[] sortedArray = Arrays.copyOf(arr, arr.length);
 		Arrays.sort(sortedArray);
@@ -198,6 +197,36 @@ public class LatinSquare {
 			}
 		}
 		return hasDuplicates;
+	}
+	
+	protected boolean hasDuplicates() {
+		for (int i = 0; i < LatinSquare.length; i++) {
+			if (hasDuplicates(getRow(i)))
+				return true;
+		}
+
+		for (int j = 0; j < LatinSquare.length; j++) {
+			if (hasDuplicates(getColumn(j)))
+				return true;
+		}
+		return false;
+	}
+	
+	protected boolean hasAllValues() {
+		for (int i = 1; i < LatinSquare.length; i++) {
+
+			if (!hasAllValues(getRow(0), getRow(i))) {
+				return false;
+			}
+		}
+
+		for (int j = 1; j < LatinSquare.length; j++) {
+
+			if (!hasAllValues(getColumn(0), getColumn(j))) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	/**
@@ -212,29 +241,12 @@ public class LatinSquare {
 	public boolean isLatinSquare() {
 
 		boolean isLatinSquare = true;
-
-		for (int i = 0; i < LatinSquare.length; i++) {
-			if (hasDuplicates(getRow(i)))
-				return false;
+		
+		if(hasDuplicates()) {
+			return false;
 		}
-
-		for (int j = 0; j < LatinSquare.length; j++) {
-			if (hasDuplicates(getColumn(j)))
-				return false;
-		}
-
-		for (int i = 1; i < LatinSquare.length; i++) {
-
-			if (!hasAllValues(getRow(0), getRow(i))) {
-				return false;
-			}
-		}
-
-		for (int j = 1; j < LatinSquare.length; j++) {
-
-			if (!hasAllValues(getColumn(0), getColumn(j))) {
-				return false;
-			}
+		if(!hasAllValues()) {
+			return false;
 		}
 
 		return isLatinSquare;
