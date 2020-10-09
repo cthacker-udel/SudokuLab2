@@ -70,7 +70,7 @@ public class Sudoku extends LatinSquare {
 		}
 		return true;
 	}
-	
+	// check the conditions of Sudoku 
 	protected boolean isSudoku(){
 		if(hasDuplicates()) {
 			return false;
@@ -78,13 +78,13 @@ public class Sudoku extends LatinSquare {
 		if(!hasAllValues()) {
 			return false;
 		}
-		if(super.ContainsZero()) {
+		if(super.ContainsZero()) {//check the number has zero
 			return false;
 		}
 		return true;
 		
 	}
-	
+	// check the conditions of a part of Sudoku
 	protected boolean isPartialSudoku() {
 		if(hasDuplicates()) {
 			return false;
@@ -94,7 +94,7 @@ public class Sudoku extends LatinSquare {
 		}
 		return false;
 	}
-	
+	// check the value in the site of row, site of column, and the site of region
 	protected boolean isValidValue(int Row, int Col, int Value){
 		if(super.doesElementExist(super.getRow(Row), Value)) {
 			return false;
