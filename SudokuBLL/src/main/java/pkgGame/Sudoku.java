@@ -94,18 +94,20 @@ public class Sudoku extends LatinSquare {
 		}
 		return false;
 	}
-	// check the value in the site of row, site of column, and the site of region
+	// Put in a row, column, and value and check if the value is valid. Value is valid only if it does not already exist in the Row, Column, and corresponding region
 	protected boolean isValidValue(int Row, int Col, int Value){
-		if(super.doesElementExist(super.getRow(Row), Value)) {
+		if(super.doesElementExist(super.getRow(Row), Value)) {  //checks if Value already exists in Row
 			return false;
 		}
-		if(super.doesElementExist(super.getColumn(Col), Value)) {
+		else if(super.doesElementExist(super.getColumn(Col), Value)) { //checks if Value already exists in Col
 			return false;
 		}
-		if(super.doesElementExist(this.getRegion(Row,Col),Value)) {
+		else if(super.doesElementExist(this.getRegion(Row,Col),Value)) { //checks if Value exists in the region given by Row and Col
 			return false;
 		}
-		return true;
+		else {
+			return true; //Return true if the Value does not exist in Row, Col, and the region
+		}
 	}
 	
 	
