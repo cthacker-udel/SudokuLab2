@@ -1,7 +1,7 @@
 package pkgHelper;
 
-import java.util.Arrays;
-
+import java.util.*;
+import org.apache.commons.lang.ArrayUtils;
 public class LatinSquare {
 	//private ArrayList<PuzzleViolation> PV = new ArrayList<PuzzleViolation>();
 
@@ -265,4 +265,23 @@ public class LatinSquare {
 	public void setLatinSquare(int[][] latinSquare) {
 		LatinSquare = latinSquare;
 	}
+	private int[] RemoveZeros(int[] arr) {
+        while (ArrayUtils.contains(arr, 0))
+            arr = ArrayUtils.removeElement(arr, 0);
+
+        return arr;
+    }
+	/*
+	protected ArrayList<PuzzleViolation> getPV() {
+	        return PV;
+	    }
+
+	    protected void ClearPuzzleViolation() {
+	        PV.clear();
+	    }
+
+	    protected void AddPuzzleViolation(PuzzleViolation pv) {
+	        PV.add(pv);
+	    }
+	*/
 }

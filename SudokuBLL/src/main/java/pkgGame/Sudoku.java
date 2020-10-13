@@ -3,11 +3,21 @@ package pkgGame;
 import pkgHelper.LatinSquare;
 // make a subclass from LatinSquare
 public class Sudoku extends LatinSquare {
-	int iSqrtSize;
+	private int iSqrtSize;
+	private int iSize;
 	public Sudoku() {
 		super();
 	}
-	
+	public Sudoku(int iSize) throws java.lang.Exception {
+        this.iSize = iSize;
+        double sq = Math.sqrt(iSize); 
+        if ((sq - Math.floor(sq)) == 0) {
+            iSqrtSize = (int)sq;
+        } else {
+            throw new Exception("The size for sudoku input is wrong");
+        }
+
+    }
 	public Sudoku(int[][] puzzle) throws Exception{
 		super(puzzle);
 		int iSize = puzzle.length;
