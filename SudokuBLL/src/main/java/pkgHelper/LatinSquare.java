@@ -3,7 +3,7 @@ package pkgHelper;
 import java.util.Arrays;
 
 public class LatinSquare {
-	private ArrayList<PuzzleViolation> PV = new ArrayList<PuzzleViolation>();
+	//private ArrayList<PuzzleViolation> PV = new ArrayList<PuzzleViolation>();
 
 	/**
 	 * LatinSquare - two dimensional array that's the core of the puzzle
